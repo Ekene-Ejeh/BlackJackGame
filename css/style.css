@@ -1,0 +1,14 @@
+* {
+   background: green;
+   color: aliceblue;
+}
+
+h1 {
+   color: rgba(255, 217, 0, 0.932);
+}
+
+#body {
+   text-align: center;
+   margin: 50px;
+   padding: 25px;
+}
