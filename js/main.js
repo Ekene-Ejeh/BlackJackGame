@@ -1,23 +1,33 @@
 // alert("Black Jack App!!");
+let messageEl = document.getElementById("message-el");
+let cardsEl = document.getElementById("cards-el");
+let sumEl = document.getElementById("sum-el");
 let firstCard = 16;
-let secondCard = 5;
+let secondCard = 9;
 let sum = firstCard + secondCard;
 let hasBlackJack = false;
 let isAlive = true;
+let message = "";
 
-if (sum <= 20) {
-   console.log("Do You want to draw a new Card?");
-   isAlive = false;
-} else if (sum === 21) {
-   console.log("You have WON!!!");
-   hasBlackJack = true;
-} else {
-   console.log("Sorry You have LOST!!!");
-   isAlive = false;
+function startGame() {
+   if (sum <= 20) {
+      message = "Do You want to draw a new Card?";
+      isAlive = false;
+   } else if (sum === 21) {
+      message = "You have WON, you got BlackJack!!!";
+      hasBlackJack = true;
+   } else {
+      message = "Sorry You are out of the Game!!!";
+      isAlive = false;
+   }
+   cardsEl.textContent = `Cards: ${firstCard}, ${secondCard}`;
+   sumEl.textContent = `Sum: ${sum}`;
+   messageEl.textContent = message;
+   console.log(sum);
+   console.log(message);
+   console.log(`has BlackJack: ${hasBlackJack}`);
+   console.log(`is alive in the game: ${isAlive}`);
 }
-
-console.log(hasBlackJack);
-console.log(isAlive);
 
 // let age = 12;
 
