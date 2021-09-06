@@ -1,4 +1,8 @@
 // blackJackGame
+let player = {
+   name: "Ekene",
+   chips: 200,
+};
 let messageElement = document.getElementById("message-el");
 let cardsElement = document.getElementById("cards-el");
 let sumElement = document.getElementById("sum-el");
@@ -7,6 +11,9 @@ let sum = 0;
 let hasBlackJack = false;
 let isAlive = false;
 let message = "";
+
+let playerElement = document.getElementById("player-el");
+playerElement.textContent = `${player.name}: $${player.chips}`;
 
 function getRandomCard() {
    let getRandomCard = Math.floor(Math.random() * 13) + 1;
@@ -36,7 +43,7 @@ function renderGame() {
 
    if (sum <= 20) {
       message = "Do You want to draw a new Card?";
-      isAlive = false;
+      isAlive = true;
    } else if (sum === 21) {
       message = "You have WON, you got BlackJack!!!";
       hasBlackJack = true;
@@ -46,105 +53,56 @@ function renderGame() {
    }
    sumElement.textContent = `Sum: ${sum}`;
    messageElement.textContent = message;
-   console.log(sum);
-   console.log(message);
-   console.log(`has BlackJack: ${hasBlackJack}`);
-   console.log(`is alive in the game: ${isAlive}`);
 }
 
 function newCard() {
-   console.log("Drawing a new Card from the deck. ");
-   let card = getRandomCard();
-   sum += card;
-   cards.push(card);
-   console.log(cards);
-   renderGame();
+   if (isAlive === true && hasBlackJack === false) {
+      let card = getRandomCard();
+      sum += card;
+      cards.push(card);
+      renderGame();
+   }
 }
 
-// introduction to Arrays
-// let experience = [
-//    "Web Development",
-//    "Software Development",
-//    "Construction",
-//    "Cat Fish farming",
-// ];
+//practice time
 
-// let cards = [7, 4];
-// cards.push(5);
-// console.log(cards);
+//objects
+let person = {
+   name: "Ekene",
+   age: 32,
+   country: "Canada",
+};
 
-// console.log(experience);
-//for loop
-// for (let index = 0; index < experience.length; index++) {
-//    const elementExperience = experience[index];
-//    console.log(elementExperience);
-// }
-// console.log(experience);
+let logData = () => {
+   console.log(
+      `${person.name} is ${person.age} years old and lives in ${person.country}`
+   );
+};
 
-// let num = [7, 3, 9];
+logData();
 
-// for (let index = 0; index < num.length; index++) {
-//    const element = num[index];
-//    console.log(element);
-// }
+//if else statement
+let age = 67;
 
-// let sentence = ["Hello", "my", "name", "is", "John"];
-// let greeting = document.getElementById("message-block");
-
-// for (let index = 0; index < sentence.length; index++) {
-//    // const element = sentence[index];
-//    // console.log(element);
-//    greeting.textContent += sentence[index] + " ";
-// }
-
-// let playerOneTime = 150;
-// let playerTwoTime = 165;
-
-// let getFastestTime = () => {
-//    if (playerOneTime > playerTwoTime) {
-//       return playerOneTime;
-//    } else if (playerTwoTime > playerOneTime) {
-//       return playerTwoTime;
-//    } else {
-//       return playerOneTime;
-//    }
-// };
-
-// fastestTime = getFastestTime();
-// console.log(fastestTime);
-
-// let getTotalTime = () => {
-//    return playerOneTime + playerTwoTime;
-// };
-// let totalTime = getTotalTime();
-// console.log(totalTime);
-
-//to get random number btw 0.00 - 0.6
-// let randomNumber = Math.random() * 6;
-// console.log(randomNumber);
-
-// //to remove decimal points in numbers
-// let floorNumber = Math.floor(3.45632);
-// console.log(floorNumber);
-
-// //to get numbers from 1-6
-// // let randomNumberTwo = Math.floor(Math.random() * 6) + 1;
-// // console.log(randomNumberTwo);
-
-// // a function to get numbers from 1 - 6
-// let rollDice = () => {
-//    let randomNumberTwo = Math.floor(Math.random() * 6) + 1;
-//    return randomNumberTwo;
-// };
-// console.log(rollDice());
-
-let hasSolvedChallenge = false;
-let hasHintsLeft = false;
-
-if (hasSolvedChallenge === false && hasHintsLeft === false) {
-   showSolution();
+if (age < 6) {
+   console.log("free");
+} else if (age > 6 && age <= 17) {
+   console.log("child discount");
+} else if (age > 18 && age <= 26) {
+   console.log("student discount");
+} else if (age > 27 && age <= 66) {
+   console.log("full price");
+} else {
+   console.log("senior citizen discount");
 }
 
-function showSolution() {
-   console.log("Showing the Solution....");
+//loops and arrays
+let largeCountries = ["China", "India", "USA", "Indonesia", "Pakistan"];
+
+console.log("The 5 Largest Countries ib the World:");
+for (let index = 0; index < largeCountries.length; index++) {
+   const element = largeCountries[index];
+   console.log("- " + element);
 }
+
+//push, pop, unshift, shift
